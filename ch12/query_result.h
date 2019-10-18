@@ -13,6 +13,8 @@ public:
             std::shared_ptr<std::vector<int>> lines,
             std::shared_ptr<std::vector<std::string>> files):
         _word(word), _lines(lines), _files(files) {}
+    std::ostream& print(std::ostream& out);
+
 private:
     std::string _word;
     std::shared_ptr<std::vector<int>> _lines;

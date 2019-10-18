@@ -3,6 +3,7 @@
 
 #include "query_result.h"
 #include <unordered_map>
+#include <fstream>
 
 class TextQuery {
 public:

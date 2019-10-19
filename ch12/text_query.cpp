@@ -25,8 +25,12 @@ TextQuery::TextQuery(std::ifstream& infile):
 
 QueryResult TextQuery::query(const std::string& word) const {
     auto lines = _word_map.find(word);
-    for (int num : *lines->second) std::cout << num << " ";
-    std::cout << std::endl;
-    QueryResult qs(word, lines->second, _files);
-    return qs;
+
+    if (lines != _word_map.end()) {
+        return QueryResult(word, lines->second, _files);
+    }
+    else {
+        std::shared_ptr<std::vector<int>> no_data(new std::vector<int>);
+        return QueryResult(word, no_data, _files);
+    }
 }

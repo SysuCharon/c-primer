@@ -5,7 +5,7 @@ using namespace std;
 class Num {
 public:
     int num;
-    Num(): num(0) {}
+    Num() {num = 0;}
     Num(const Num& n) {
         num = n.num + 1;
     }

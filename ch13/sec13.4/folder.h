@@ -4,6 +4,7 @@
 #include <iostream>
 #include <unordered_set>
 #include <string>
+#include <memory>
 
 class Folder;
 
@@ -24,7 +25,17 @@ private:
     void removeFromFolders();
 
     std::string _contents;
-    std::unordered_set<Folder*> _floders;
+    std::unordered_set<std::shared_ptr<Folder>> _floders;
+}
+
+class Folder {
+public:
+    Folder() {};
+    addMsg(const Message& msg);
+    remMsg(const Message& msg);
+
+private:
+    std::unordered_set<std::shared_ptr<Message>> _messages;
 }
 
 #endif

@@ -25,7 +25,7 @@ private:
     void removeFromFolders();
 
     std::string _contents;
-    std::unordered_set<std::shared_ptr<Folder>> _floders;
+    std::unordered_set<Folder*> _floders;
 }
 
 class Folder {
@@ -35,7 +35,7 @@ public:
     remMsg(const Message& msg);
 
 private:
-    std::unordered_set<std::shared_ptr<Message>> _messages;
+    std::unordered_set<Message*> _messages;
 }
 
 #endif
